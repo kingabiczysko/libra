@@ -3,6 +3,13 @@ package com.crud.libra.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+//@NamedQuery(
+//        name = "Book.retrieveAvailableBooks",
+//        query = "FROM Book WHERE idBook < 10"
+//)
+
+
+
 @Entity (name = "books")
 public class Book {
     private Long idBook;

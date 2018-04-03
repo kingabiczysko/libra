@@ -1,6 +1,7 @@
 package com.crud.libra.controller;
 
 import com.crud.libra.domain.BookDto;
+import com.crud.libra.domain.Title;
 import com.crud.libra.mapper.BookMapper;
 import com.crud.libra.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,21 @@ public class BookController {
     @RequestMapping (method = RequestMethod.PUT, value = "/books")
     public BookDto updateBook(@RequestBody BookDto bookDto){
         return bookMapper.mapToBookDto(service.saveBook(bookMapper.mapToBook(bookDto)));
+    }
+
+//    @RequestMapping(method = RequestMethod.GET, value = "/books/available")
+//    public List<BookDto> getBooksAvailable(){
+//        return bookMapper.mapToBookDtoList(service.getAllAvailableBooks());
+//    }
+
+    @RequestMapping (method = RequestMethod.GET, value = "/booksavailable")
+    public List<BookDto> getBooksAll() {
+        return bookMapper.mapToBookDtoList(service.getAllBooksByStatus("ok"));
+    }
+
+    @RequestMapping (method = RequestMethod.GET, value = "/booksavailable/{title}")
+    public List<BookDto> getBooksAllTitle(@PathVariable Title title){
+        return bookMapper.mapToBookDtoList(service.getAllBooksByStatusAndTitle("ok", title.getIdTitle()));
     }
 
 }

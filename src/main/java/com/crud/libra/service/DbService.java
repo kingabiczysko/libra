@@ -62,12 +62,11 @@ public class DbService {
         bookRepository.deleteById(idBook);
     }
 
-//    public List<Book> getAvailableBook(final Long idTitle){
-//        return bookRepository.findAvailable(idTitle);
-//    }
 
-
-
+    public List<Book> getAllBooksByStatus (final String status){return bookRepository.findAllByStatus(status);}
+    public List<Book> getAllBooksByStatusAndTitle (final String status, final Long title){
+        return bookRepository.findAllByStatusAndTitle(status, title);
+    }
 
     public List<Reader> getAllReaders(){
         return readerRepository.findAll();

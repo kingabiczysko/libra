@@ -28,4 +28,12 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     @Override
     long count();
 
+//    @Query
+//    List<Book> retriveAvailableBooks();
+
+    List<Book> findAllByStatus(String status);
+
+    List<Book> findAllByStatusAndTitle(String status, Long title);
+
+
 }
