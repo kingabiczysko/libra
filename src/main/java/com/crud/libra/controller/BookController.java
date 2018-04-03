@@ -23,10 +23,6 @@ public class BookController {
     public List<BookDto> getBooks(){
         return bookMapper.mapToBookDtoList(service.getAllBooks());
     }
-//    @RequestMapping(method = RequestMethod.GET, value = "/books/title/{idTitle}")
-//    public List<BookDto> getBooksAvailable(Long idTitle){
-//        return bookMapper.mapToBookDtoList(service.getAvailableBook(idTitle));
-//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/books/{idBook}")
     @ResponseBody

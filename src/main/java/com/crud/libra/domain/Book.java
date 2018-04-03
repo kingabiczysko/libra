@@ -33,7 +33,7 @@ public class Book {
         return status;
     }
 
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_title")
     public Title getTitle() {
         return title;
