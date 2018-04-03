@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -46,19 +47,16 @@ public class BookController {
         return bookMapper.mapToBookDto(service.saveBook(bookMapper.mapToBook(bookDto)));
     }
 
-//    @RequestMapping(method = RequestMethod.GET, value = "/books/available")
-//    public List<BookDto> getBooksAvailable(){
-//        return bookMapper.mapToBookDtoList(service.getAllAvailableBooks());
-//    }
-
     @RequestMapping (method = RequestMethod.GET, value = "/booksavailable")
     public List<BookDto> getBooksAll() {
         return bookMapper.mapToBookDtoList(service.getAllBooksByStatus("ok"));
     }
 
-    @RequestMapping (method = RequestMethod.GET, value = "/booksavailable/{title}")
-    public List<BookDto> getBooksAllTitle(@PathVariable Title title){
-        return bookMapper.mapToBookDtoList(service.getAllBooksByStatusAndTitle("ok", title.getIdTitle()));
+
+    @RequestMapping (method = RequestMethod.GET, value = "/booksavailable/{idTitle}")
+    public List<BookDto> getBooksAllTitle(@PathVariable Long idTitle){
+       Optional <Title> title = service.getTitle(idTitle);
+        return bookMapper.mapToBookDtoList(service.getAllBooksByStatusAndTitle("ok", title));
     }
 
 }

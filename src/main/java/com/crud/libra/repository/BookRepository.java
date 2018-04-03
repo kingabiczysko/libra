@@ -1,6 +1,7 @@
 package com.crud.libra.repository;
 
 import com.crud.libra.domain.Book;
+import com.crud.libra.domain.Title;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -28,12 +29,10 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     @Override
     long count();
 
-//    @Query
-//    List<Book> retriveAvailableBooks();
 
     List<Book> findAllByStatus(String status);
 
-    List<Book> findAllByStatusAndTitle(String status, Long title);
+    List<Book> findAllByStatusAndTitle(String status, Optional <Title> title);
 
 
 }

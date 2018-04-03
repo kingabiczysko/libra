@@ -28,7 +28,7 @@ public class ReaderMapper {
 
     public List<ReaderDto> readerDtoList (final List<Reader> readerList){
         return readerList.stream()
-                .map(r-> new ReaderDto(r.getIdReader(), r.getName(), r.getSurname()))
+                .map(r-> new ReaderDto( r.getIdReader(),r.getName(), r.getSurname()))
                 .collect(Collectors.toList());
     }
 

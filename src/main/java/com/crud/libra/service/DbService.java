@@ -64,7 +64,7 @@ public class DbService {
 
 
     public List<Book> getAllBooksByStatus (final String status){return bookRepository.findAllByStatus(status);}
-    public List<Book> getAllBooksByStatusAndTitle (final String status, final Long title){
+    public List<Book> getAllBooksByStatusAndTitle (final String status, final Optional <Title> title){
         return bookRepository.findAllByStatusAndTitle(status, title);
     }
 
