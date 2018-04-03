@@ -1,20 +1,15 @@
 package com.crud.libra.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BookDto {
     private Long idBook;
     private String status;
     private Title title;
-    private List<Borrow> borrowList = new ArrayList<>();
+
 
     public BookDto() {
     }
 
-    public BookDto(Long idBook, String status
-            , Title title
-                   ) {
+    public BookDto(Long idBook, String status, Title title) {
         this.idBook = idBook;
         this.status = status;
         this.title = title;
@@ -34,9 +29,7 @@ public class BookDto {
         return title;
     }
 
-    public List<Borrow> getBorrowList() {
-        return borrowList;
-    }
+
 
     public void setIdBook(Long idBook) {
         this.idBook = idBook;
@@ -50,7 +43,5 @@ public class BookDto {
         this.title = title;
     }
 
-    public void setBorrowList(List<Borrow> borrowList) {
-        this.borrowList = borrowList;
-    }
+
 }

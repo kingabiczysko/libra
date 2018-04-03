@@ -1,14 +1,13 @@
 package com.crud.libra.domain;
 
 import java.util.Date;
-import java.util.List;
 
 public class ReaderDto {
     private Long idReader;
     private String name;
     private String surname;
     private Date created;
-    private List<BorrowDto> borrowList;
+
 
     public ReaderDto() {
     }
@@ -36,9 +35,6 @@ public class ReaderDto {
         return created;
     }
 
-    public List<BorrowDto> getBorrowList() {
-        return borrowList;
-    }
 
     public void setIdReader(Long idReader) {
         this.idReader = idReader;
@@ -56,7 +52,5 @@ public class ReaderDto {
         this.created = created;
     }
 
-    public void setBorrowList(List<BorrowDto> borrowList) {
-        this.borrowList = borrowList;
-    }
+
 }

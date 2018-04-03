@@ -1,8 +1,6 @@
 package com.crud.libra.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(name = "titles")
 public class Title {
@@ -10,7 +8,6 @@ public class Title {
     private String title;
     private String author;
     private int publishedYear;
-    private List<Book> books = new ArrayList<>();
 
     public Title() {
     }
@@ -44,15 +41,6 @@ public class Title {
         return publishedYear;
     }
 
-    @OneToMany(
-            targetEntity = Book.class,
-            mappedBy = "title",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    public List<Book> getBooks(){
-        return books;
-    }
 
     public void setIdTitle(Long idTitle) {
         this.idTitle = idTitle;
@@ -71,7 +59,4 @@ public class Title {
 
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 }

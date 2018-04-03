@@ -1,15 +1,11 @@
 package com.crud.libra.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TitleDto {
 
     private Long idTitle;
     private String title;
     private String author;
     private int publishedYear;
-    private List<Book> books = new ArrayList<>();
 
     public TitleDto() {
     }
@@ -37,9 +33,6 @@ public class TitleDto {
         return publishedYear;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
 
     public void setIdTitle(Long idTitle) {
         this.idTitle = idTitle;
@@ -57,7 +50,4 @@ public class TitleDto {
         this.publishedYear = publishedYear;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 }

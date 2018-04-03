@@ -3,7 +3,6 @@ package com.crud.libra.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 @Entity(name = "readers")
 public class Reader {
@@ -11,7 +10,6 @@ public class Reader {
     private String name;
     private String surname;
     private Date created;
-    private List<Borrow> borrowList;
 
     public Reader() {
     }
@@ -48,10 +46,6 @@ public class Reader {
         return created;
     }
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "reader")
-    public List<Borrow> getBorrowList() {
-        return borrowList;
-    }
 
     public void setIdReader(Long idReader) {
         this.idReader = idReader;
@@ -69,7 +63,5 @@ public class Reader {
         this.created = created;
     }
 
-    public void setBorrowList(List<Borrow> borrowList) {
-        this.borrowList = borrowList;
-    }
+
 }

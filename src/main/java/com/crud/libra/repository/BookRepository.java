@@ -28,6 +28,4 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     @Override
     long count();
 
-
-    //List<Book> findAvailable (Long idTitle);
 }
